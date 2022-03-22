@@ -17,21 +17,14 @@ class Menu(Options):
     
   def option2(self): #delete food
     deleteItem = input("Enter the name of the item you would like to delete: ")
-    toDelete = []
-    for item in food.foods:
-      if item.name.lower() == deleteItem.lower():
-        toDelete.append(item)
-    for item in toDelete:
-      item.displayInfo
-      print("\n Please enter the ID number of the item you would like to delete: ")
     
-      
+    
     
   def option3(self): #view all eaten/calories left 
     total = func.getTotal()
     func.viewList()
     print (f"\nYour target goal is {food.targetCal} calories")
-    print (f"You have eaten {total} calories so far")
+    print (f"You have eaten {total} calories so far\n")
     
   def option4(self): #change calorie goal
     food.targetCal = input("What would you like the new calorie goal to be: ")

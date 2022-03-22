@@ -11,8 +11,7 @@ class Food():
   def checkDeficit(self, extra):
     total = 0
     for food in foods:
-      total += food.calories
-      print(food.calories)
+      total += food.calories)
     total += extra
     if total > targetCal:
       return False, targetCal-total
@@ -40,4 +39,4 @@ class Food():
     print ("\n")
 
   def displayInfo(self):
-    print (f"Name: {self.name}\nCalories: {self.calories}\nID: {self.id}")
+    print (f"\nName: {self.name}\nCalories: {self.calories}\nID: {self.id}\n")
