@@ -25,20 +25,20 @@ class Menu(Options):
     if len(toDelete) == 1:
       print ("Are you sure you want to delete: (Y/N)")
       toDelete[0].displayInfo()
-      if input() == "Y":
-        food.foods.remove(toDelete[0])
+      if input().upper() == "Y":
+        toDelete[0].delete()
     else:
       for item in toDelete:
         item.displayInfo()
       print ("\nEnter the ID number of the item you would like to delete: ")
       print ("Enter -1 to cancel")
       id = int(input())
-      if id < len(food.foods) and id != -1:
-        id = int(input("That is not a valid answer, try again: "))
-      elif id == -1:
+      if id == -1:
         return 0
+      elif id > len(food.foods) or id < 0:
+        id = int(input("That is not a valid answer, try again: "))
       else:
-        func.deleteItem(func.searchListById(id))
+        item.delete()
     
     
   def option3(self): #view all eaten/calories left 
@@ -52,4 +52,10 @@ class Menu(Options):
     
   def option5(self): #clear list
     food.foods.clear()
+
+  def showHeader(self):
+    options = ["Add food", "Delete food", "View eaten today", "Change calorie goal", "Clear list"]
+    for i in range(0,5):
+      print (str(i+1), " ", options[i])
+    print("\n\nPlease enter a number corresponding to each option from 1-5: ")
 

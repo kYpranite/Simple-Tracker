@@ -1,4 +1,5 @@
-targetCal = 50
+
+targetCal = int(input("Enter your calorie goal: "))
 foods = []
 
 class Food():
@@ -11,7 +12,7 @@ class Food():
   def checkDeficit(self, extra):
     total = 0
     for food in foods:
-      total += food.calories)
+      total += (food.calories)
     total += extra
     if total > targetCal:
       return False, targetCal-total
@@ -40,3 +41,8 @@ class Food():
 
   def displayInfo(self):
     print (f"\nName: {self.name}\nCalories: {self.calories}\nID: {self.id}\n")
+    
+  def delete(self):
+    for item in foods:
+      if item == self:
+        foods.remove(item)
